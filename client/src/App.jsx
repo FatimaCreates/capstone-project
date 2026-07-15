@@ -1,10 +1,10 @@
-import SettingsForm from './components/SettingsForm'
+import ProfileSettingsForm from './components/ProfileSettingsForm'
 import './App.css'
 
 function App() {
   return (
     <main className="app">
-      <SettingsForm />
+      <ProfileSettingsForm />
     </main>
   )
 }
