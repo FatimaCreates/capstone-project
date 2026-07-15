@@ -1,3 +1,4 @@
+
 # Project Context
 
 Capstone project for the **Frontend AI Engineering** internship track. Development uses AI-assisted coding tools.
@@ -88,3 +89,14 @@ chore(deps): bump react to 19.x
 - Review all AI-generated code before committing.
 - Do not commit code you do not understand or have not verified.
 - Prefer minimal, focused changes over large refactors unless requested.
+
+
+Rules learned from the AI-assisted workflow drill (FE-03)
+
+
+Always specify the exact field/prop list for forms and components — never let the model infer scope.
+A vague prompt ("add a settings form") produced 8 fields, a theme selector, a language selector, and a reset button that were never requested. Every prompt for a form or component must enumerate the exact fields/props allowed, plus an explicit "do not add X" line for common scope-creep targets (extra fields, theming, notifications).
+Validation timing must be stated explicitly, or it won't exist.
+Left unspecified, the model shipped a component with a required attribute but no actual validation logic — the form reported success even on invalid input. Prompts must state: which fields are required, what "valid" means for each (e.g. regex/min length), and when errors should appear (on blur / on submit / on change). Never assume "add validation" is enough.
+Every component-generation prompt must include a self-verification step, and the model must actually run it.
+Round 1 (no verification step) produced code with no test artifact, and a bug (unconditional success message) that only surfaced on manual review. Round 2's prompt required writing a test checklist and verifying the component against it before finishing — this caught the gap before code review, not during it. Rule: "write it, then write tests and run/verify them against a checklist" belongs in every prompt that generates interactive UI.
