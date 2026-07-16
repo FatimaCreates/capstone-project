@@ -12,10 +12,8 @@ Capstone project repository for the **Frontend AI Engineering** internship track
 Once the React app scaffolding is in place:
 
 ```bash
-# Install dependencies
+cd client
 npm install
-
-# Start the development server
 npm start
 ```
 
